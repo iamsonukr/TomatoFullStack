@@ -1,0 +1,15 @@
+//animation in index.css +  Header.css->headerContent (components)
+//navbar hover in Navbar.jsx (components)
+//image import in assets.js (assets)
+
+//passing category and setCategory as prop => (Home.jsx , ExploreMenu.jsx)
+
+//selecting || setting category in a an image => (Components->ExploreMenu, Pages->Home, assets->assets.js )
+
+//contentAPI => (context->StoreContext, assets->assets.js , main.jsx, FoodDisplay.jsx)
+
+//Add to cart Functionality => (StoreContext, FoodDispayItem, FoodDisplay, index.js)
+
+//popup => LoginPopup.jsx [LoginPopup.css]
+
+//Calculate total cart price => StoreContext.jsx

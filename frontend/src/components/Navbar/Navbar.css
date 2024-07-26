@@ -1,0 +1,117 @@
+
+
+.navbar{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo{
+    width: 150px;
+}
+
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557e;
+    font-size: 18px;
+}
+
+.navbar-menu li{
+    cursor: pointer;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-right button{
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px ;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.navbar-right button:hover{
+    background-color: #fff4f2;
+    transition: 0.3s;
+}
+.navbar-menu .active{
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+
+.navbar-search-icon{
+    /* setting it relative give the reference point to the children for absoulte positioning otherwise it would walk around the HTML  */
+    position: relative; 
+}
+.navbar-search-icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 5px;
+    background-color: tomato;
+    top: -10px;
+    right:-9px;
+}
+
+/* large screen devices */
+@media (max-width:1050px){
+    .navbar .logo{
+        width: 140px;
+    }
+
+    .navbar-menu{
+        gap:30px;
+        font-size: 17px;
+    }
+    .navbar-right{
+        gap: 30px;
+    }
+    .navbar-right img{
+        width: 22px;
+    }
+
+    .navbar-right button{
+        padding:8px 25px;
+    }
+}
+
+/* tabs */
+@media (max-width:900px){
+    .navbar .logo{
+        width: 120px;
+    }
+
+    .navbar-menu{
+        gap:35px;
+        font-size: 16px;
+    }
+    .navbar-right{
+        gap: 20px;
+    }
+    .navbar-right img{
+        width: 20px;
+    }
+
+    .navbar-right button{
+        padding:7px 20px;
+        font-size: 15px;
+    }
+}
+
+/* mobiles */
+@media (max-width:750px){
+
+    .navbar-menu{
+        display: none;
+    }
+}
