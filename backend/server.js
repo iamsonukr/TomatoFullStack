@@ -1,0 +1,37 @@
+import express from 'express'
+import cors from 'cors'
+import connectDB from './config/db.connect.js'
+import foodRouter from './routes/food.route.js'
+
+
+
+
+// app config
+const app=express()
+const port=5000
+
+
+// middleware
+//the request recening from the front end will be parsed using this middleware
+app.use(express.json()) 
+
+// can access backed from frontend
+app.use(cors())
+
+connectDB()
+
+//routes | api endpoints
+app.use('/api/food',foodRouter)
+
+//expose the image folder on the browser
+app.use('/images',express.static('uploads'))
+
+
+app.get('/',(req,res)=>{
+    
+})
+
+
+app.listen(port,()=>{
+    console.log('server started')
+})

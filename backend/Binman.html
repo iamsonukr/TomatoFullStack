@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: poppins;
+            font-weight: 700;
+        }
+    
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .checkPin,
+        .bookNow {
+            margin: 20px;
+        }
+    
+        .bookNow {
+            display: none;
+        }
+    
+        #checkPinID {
+            /* padding: 10px; */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+    
+            /* margin-right: 10px; */
+        }
+    
+        #checkPinID :hover {
+            background-color: #0056b3;
+        }
+    
+        #pinBtn,
+        .bookNow {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #FBDA0C;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        #pinBtn :hover {
+            background-color: #0056b3;
+        }
+    
+    
+        /* Price section */
+        /*    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');*/
+    
+        /* {/
+        /*    font-family: 'Poppins', sans-serif;*/
+    /* } */
+    
+        h3.msg {
+            font-size: 2rem;
+            text-align: center;
+        }
+    
+        .sliderArea {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            padding-bottom: 100px;
+            /* padding-left: 160px; */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #0057AD;
+            color: white;
+        }
+    
+        .sliderSection {
+            display: flex;
+            gap: 30px;
+            /* background-color: black; */
+    
+        }
+    
+        .sliderSection .sliders {
+            min-height: 252px;
+            min-width: 300px;
+        }
+    
+        .sliderInput {
+            font-family: poppins;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* margin-left: 160px; */
+            margin-bottom: 2rem;
+        }
+    
+        .sliders {
+    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 4px solid #FBDA0C;
+            border-radius: 20px;
+            padding: 20px 0px;
+            gap: -0px;
+            background-color: rgb(48, 48, 48);
+            color: white;
+            flex-wrap: wrap;
+    
+        }
+    
+        .sliderSection {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    
+        #shitMsg {
+            margin-left: 10px;
+            color: #FBDA0C;
+            font-size: 14px;
+        }
+    
+        .price,
+        .BillMe {
+            color: white !important;
+        }
+    
+        .sliderSection,
+        .sliders,
+        .firstTitle,
+        .secondTitle,
+        .price,
+        .byeNow,
+        .user,
+        .phone,
+        .extension {
+            font-family: poppins;
+            margin: 0px;
+            /* paddin
+    g: 10px; */
+        }
+    
+        .firstTitle {
+            font-size: 16px;
+            font-weight: 750;
+        }
+    
+        .sectondTitle {
+            text-align: center;
+            font-size: 14px;
+        }
+    
+        .byeNow {
+            background-color: #FBDA0C;
+            color: blue !important;
+            padding: 10px 20px;
+            margin: 10px 0px;
+            border-radius: 10px;
+        }
+    
+        .byeNow:hover {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0) !important;
+        }
+    
+        /* Switch CSS */
+        .switch {
+            margin: 0px 10px;
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+    
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+    
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+    
+        input:checked+.slider {
+            background-color: #10fb0c;
+        }
+    
+        input:focus+.slider {
+            box-shadow: 0 0 1px #FBDA0C;
+        }
+    
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+    
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+    
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    
+        /*-------------------- heading--------- */
+    
+        .heading1 {
+            margin: 0px;
+        }
+    
+        .heading {
+            font-family: poppins;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .trialButton {
+            background-color: rgb(255, 255, 255);
+            color: black !important;
+            padding: 20px 30px;
+            /* margin: 10px 0px; */
+            border-radius: 30px;
+            font-size: 20px;
+    
+        }
+    
+        .trialButton:hover {
+            color: #ffffff !important;
+            background-color: #FBDA0C;
+            cursor: pointer;
+        }
+    
+        .FirstPlanPrice,
+        .quaterPlanPrice,
+        .sixPlanPrice,
+        .oneYearPrice {
+            font-size: 40px;
+        }
+    
+        /* Butting effect */
+    
+        .priceSection {
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        .pinSection {
+            padding: 5px;
+        }
+    
+        .blurred::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            /* Adjust blur radius as needed */
+            z-index: 1;
+        }
+    
+        .titlediv {
+            min-height: 60px;
+        }
+        .tax{
+            font-size: 30px;
+            font-weight: 400;
+        }
+        .imgDis{
+            position: inherit;
+            width: 150px;
+        }
+        .imgDiv{
+            position: absolute;
+            margin-right: 400px;
+            margin-top: -80px;
+            margin-bottom: -50px;
+           
+        }
+    </style>
+    
+    
+    <!-- Your HTML code goes here -->
+    <!--  PIN Section starts here -->
+  
+    
+    
+    
+    <div class="priceSection ">
+        <div class="sliderArea">
+    
+            <!--<div class="heading">-->
+            <!--    <h1 class="heading1" style=" font-size: 48px;">Choose Your Plan</h1>-->
+            <!--    <br>-->
+            <!--     <h4 style="margin-top: -10px; margin-bottom: 30px; color: white;">For $69 extra, we will empty and steam-->
+            <!--        clean your bins within 24 hrs.</h4>-->
+            <!--    <div class="twoCans" style="display: flex; gap: 50px;">-->
+            <!--        <h3>➤ 2 cans included</h3>-->
+            <!--        <h3>➤ $10 each additional can</h3>-->
+            <!--    </div>-->
+    
+    
+            <!--    </div>-->
+    
+            <div class="sliderInput">
+                <pre>      </pre>
+                <h2 class="BillMe">Save 10% with annual billing </h2>
+                <label class="switch">
+                    <input id="sliderCheck" type="checkbox" onclick="checkBoxed()">
+                    <span class="slider round"></span>
+                </label>
+                <h2 class="BillMe"></h2>
+                <br>
+            </div>
+    
+            <!--  Price plans  -->
+            <div class="sliderSection">
+    
+                <!-- <div class="sliders">
+                    <div class="titlediv">
+                        <p class="firstTitle">Every 6 weeks </p>
+                        <p class="firstTitle p2"> (8 cleanings per year)</p>
+                    </div>
+              
+                    <h2 class="price firstPlan" id="firstPlan">$
+                        <span class="FirstPlanPrice">20.99 </span><span class="tax">+ Tax</span>
+                    </h2>
+                    <button onclick="openIt1()" id="byeNow1" class="byeNow">Book Now</button>
+                </div> -->
+    
+                <!-- Quarterly -->
+                <div class="sliders">
+                    <span class="imgDiv"><img class="imgDis" height="120px" src='https://binmantrash.com/wp-content/uploads/2024/03/vecteezy_most-popular-online-shopping-vector-icon_5720326-removebg-preview-1.png' alt="VECTOR IMAGE"></span>
+    
+    
+                    <div class="titlediv">
+                        <p  class="firstTitle">Quarterly</p>
+                        <p class="firstTitle p2">(4 cleanings per year)</p>
+                    </div>
+                    <h2 class="price" id="secondPlan">$
+                        <span class="quaterPlanPrice">45.00 </span><span class="tax">+ Tax</span>
+                    </h2>
+                    <button onclick="openIt2()" id="byeNow2" class="byeNow">Book Now</button>
+                </div>
+    
+                <!-- Semi-Annual (6 months) -->
+                <div class="sliders">
+                    <div class="titlediv">
+                        <p class="firstTitle">Semi-Annual</p>
+                    </div>
+                    <h2 class="price" id="thirdPlan">$<span class="sixPlanPrice"> 65.00  </span><span class="tax">+ Tax</span></h2>
+                    <button onclick="openIt3()" id="byeNow3" class="byeNow">Book Now</button>
+                </div>
+    
+                <!-- One-Time -->
+                <div class="sliders">
+                    <div class="titlediv">
+                        <p class="firstTitle">One-Time</p>
+                    </div>
+                    <h2 class="price" id="forthPlan">$ <span class="oneYearPrice"> 85.00 </span><span class="tax">+ Tax</span></h2>
+                    <button onclick="openIt4()" id="byeNow4" class="byeNow">Book Now</button>
+                </div>
+    
+            </div>
+            <!--<h4 style="margin-top: 20px; color: white;display:flex;justify-content: center; align-items: center;">Have a trash emergency? Flies? Maggots, rodents?”</h4>-->
+            <!--<h3 style="margin-top: 20px; color: white;display:flex;justify-content: center; align-items: center;">Do you need Emergency 24hr Cleaning</h3>-->
+        </div>
+    
+    </div>
+    
+    <div class="pinSection">
+        <div class="section">
+    
+            <h3 style="color:rgb(255, 255, 255); text-align:center;margin-top:1rem;font-size:2rem;">Check if our service is
+                available in your area !</h3>
+            <div class="checkPin">
+                <input type="number" id="checkPinID" placeholder="Enter Your ZIP Code">
+            </div>
+            <button id="pinBtn" onclick={checkPinFun()} style="color: blue !important;"> Check ZIP Code →</button>
+            <h3 class="msg"></h3>
+            <!--<a href="https://binmantrash.com/check-out-1/"><button style="color: blue !important;" class="bookNow">Book Now →</button></a>-->
+        </div>
+    </div>
+
+
+    <!-- Script -->
+
+    <script>
+
+        // Your JavaScript code here
+        function checkBoxed() {
+            let checkButton = document.getElementById("sliderCheck")
+            checkButton.disabled = true;
+            setTimeout(() => {
+                checkButton.disabled = false;
+            }, 800)
+    
+            var interval1;
+            var interval2;
+            var interval3;
+            var interval4;
+            const checkbox = document.getElementById("sliderCheck");
+            const isChecked = checkbox.checked;
+    
+    
+            var monthEle = document.querySelector('.FirstPlanPrice')
+    
+            var quaterEle = document.querySelector('.quaterPlanPrice')
+    
+            var sixMonthEle = document.querySelector('.sixPlanPrice')
+    
+            var oneTimeEle = document.querySelector('.oneYearPrice')
+    
+            if (isChecked) {
+    
+                // monthEle.textContent = 18.891;
+                // quaterEle.textContent = 33.291 ;
+                // sixMonthEle.textContent = 37.791 ;
+    
+    
+                let minMonthFee = 24;
+                let minQuarterFee=45;
+                let minSemiFee=65;
+    
+                interval1 = setInterval(function () {
+                    minMonthFee--;
+                    monthEle.textContent = minMonthFee;
+    
+                    if (minMonthFee === 19) {
+                        monthEle.textContent = "18.89"; // Assuming you want to display this as a string
+                        clearInterval(interval1);
+                    }
+                }, 100);
+    
+                interval2 = setInterval(function () {
+                    minQuarterFee--;
+                    quaterEle.textContent = minQuarterFee;
+    
+                    if (minQuarterFee === 40) {
+                        quaterEle.textContent = "41.50" ;
+                        clearInterval(interval2);
+                    }
+                }, 100);
+    
+                interval3 = setInterval(function () {
+                    minSemiFee--;
+                    sixMonthEle.textContent = minSemiFee;
+                    
+                    if (minSemiFee == 60) {
+                        sixMonthEle.textContent = "59.50";
+                        clearInterval(interval3);
+                    }
+                }, 100);
+    
+            }
+            else {
+                // let noDiscountMonth =  18.891 
+                // let noDiscountQuater = 39
+                // let noDiscountSix = 49
+    
+                let maxMonthFee = 16;
+                let maxQuarterFee=30;
+                let maxSemiFee=60;
+    
+                interval1 = setInterval(function () {
+                    maxMonthFee++;
+                    monthEle.textContent = maxMonthFee;
+    
+                    if (maxMonthFee === 20) {
+                        monthEle.textContent = "20.99"; // Assuming you want to display this as a string
+                        clearInterval(interval1);
+                    }
+                }, 100);
+    
+                interval2 = setInterval(function () {
+                    maxQuarterFee++;
+                    quaterEle.textContent = maxQuarterFee;
+    
+                    if (maxQuarterFee === 36) {
+                        quaterEle.textContent = "45.00" ;
+                        clearInterval(interval2);
+                    }
+                }, 100);
+    
+                interval3 = setInterval(function () {
+                    maxSemiFee++;
+                    sixMonthEle.textContent = maxSemiFee;
+                    if (maxSemiFee === 65) {
+                        sixMonthEle.textContent = "65.00";
+                        clearInterval(interval3);
+                    }
+                }, 100);
+    
+    
+    
+    
+    
+                // monthEle.textContent = 20.99;
+                // quaterEle.textContent = 36.99;
+                // sixMonthEle.textContent = 41.99;
+                // interval1 = setInterval(function () {
+                //     monthFee++;
+                //     monthEle.textContent = monthFee;
+    
+                //     if (monthFee == noDiscountMonth) {
+                //         clearInterval(interval1);
+                //     }
+                // }, 100);
+    
+                // interval2 = setInterval(function () {
+                //     quarterFee++;
+    
+                //     if (quarterFee == noDiscountQuater) {
+                //         clearInterval(interval2);
+                //     }
+                // }, 100);
+    
+    
+                // interval3 = setInterval(function () {
+                //     sixMonthFee++;
+                //     console.log("the six mont", sixMonthFee)
+                //     sixMonthEle.textContent = sixMonthFee;
+    
+    
+                //     if (sixMonthFee == noDiscountSix) {
+                //         clearInterval(interval3);
+                //     }
+                // }, 100);
+            }
+        }
+    
+        const pinList = [
+            78691, 78701, 78702, 78703, 78704, 78705, 78708, 78709, 78710, 78711,
+            78712, 78713, 78714, 78715, 78716, 78718, 78719, 78720, 77036, 77346,
+            73301, 73344, 78610, 78612, 78613, 78615, 78617, 78620, 78621, 78641,
+            78645, 78652, 78653, 78654, 78660, 78663, 78664, 78669, 77450, 75002,
+            78721, 78722, 78723, 78724, 78725, 78726, 78727, 78728, 78729, 78730,
+            78731, 78732, 78733, 78734, 78735, 78736, 78737, 78738, 78739, 78741,
+            78742, 78744, 78745, 78746, 78747, 78748, 78749, 78750, 78751, 78752,
+            78753, 78754, 78755, 78756, 78757, 78758, 78759, 78760, 78761, 78762,
+            78763, 78764, 78765, 78766, 78767, 78768, 78772, 78773, 78774, 78778,
+            78779, 78783, 78799, 77494, 77449, 78660, 77084, 77433, 79936, 77573,
+            79938, 75052, 78245, 77479, 78130, 77429, 77584, 78613, 75217, 78641,
+            78521, 78666, 75035, 78542, 77379, 76063, 77459, 78577, 79928, 78254,
+            79912, 78572, 77407, 76028, 76244, 77083, 76179, 77845, 75211, 77346,
+            77494, 77449, 78660, 77084, 77433, 79936, 77573, 79938, 75052, 78245,
+            77479, 78130, 77429, 77584, 78613, 75217, 78641, 78521, 78666, 75035,
+            78542, 77379, 76063, 77459, 78577, 79928, 78254, 79912, 78572, 77407,
+            76028, 76244, 77083, 76179, 77845, 75211, 75002, 77450, 77036, 77346,
+            77494, 77449, 78660, 77084, 77433, 79936, 77573, 79938, 75052, 78245,
+            77479, 78130, 77429, 77584, 78613, 75217, 78641, 78521, 78666, 75035,
+            78542, 77379, 76063, 77459, 78577, 79928, 78254, 79912, 78572, 77407,
+            76028, 76244, 77083, 76179, 77845, 75211, 75002, 77450, 77036,
+        ];
+    
+        function checkPinFun() {
+            console.log("Hello");
+            let pin = parseInt(document.getElementById('checkPinID').value);
+            let checkPinArry = pinList.find((item) => item == pin)
+    
+    
+            if (checkPinArry) {
+                varPin = pin;
+                document.getElementsByClassName('msg')[0].textContent = 'Hurray! Our service is available in your area';
+                //  document.getElementsByClassName('bookNow')[0].style.display = 'block';
+                var priceSection = document.querySelector(".priceSection").classList.remove("blurred")
+    
+    
+            } else {
+                // document.getElementsByClassName('customForm')[0].style.display = 'none';
+                document.getElementsByClassName('msg')[0].textContent = 'Sorry! Our service is not available in your area';
+                // document.getElementsByClassName('bookNow')[0].style.display = 'none';
+                var priceSection = document.querySelector(".priceSection").classList.add("blurred")
+                // priceSection.classList.remove("blurred");
+    
+            }
+        }
+        // bye now section--------------------------------------
+    
+        function openIt1() {
+            let slider = document.getElementById('sliderCheck').checked
+            if (slider) {
+                window.location.href = 'https://binmantrash.com/six-week-checkout-annual/';
+            } else {
+                window.location.href = 'https://binmantrash.com/six-week-checkout-non-annual/';
+    
+            }
+    
+        }
+        function openIt2() {
+            let slider = document.getElementById('sliderCheck').checked
+            if (slider) {
+                window.location.href = 'https://binmantrash.com/quarterly-annual/';
+            } else {
+                window.location.href = 'https://binmantrash.com/quarterly-checkout-non-annual/';
+    
+            }
+    
+        }
+        function openIt3() {
+            let slider = document.getElementById('sliderCheck').checked
+            if (slider) {
+                window.location.href = 'https://binmantrash.com/semi-annual-annual-true/';
+            } else {
+                window.location.href = 'https://binmantrash.com/semi-annual-non-annual/';
+    
+            }
+    
+        }
+        function openIt4() {
+            let slider = document.getElementById('sliderCheck').checked
+            if (slider) {
+                window.location.href = 'https://binmantrash.com/onetimefinal/';
+            } else {
+                window.location.href = 'https://binmantrash.com/onetimefinal/';
+    
+            }
+    
+        }
+    
+    </script>
+</body>
+</html>

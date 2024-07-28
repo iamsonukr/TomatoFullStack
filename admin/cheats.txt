@@ -1,0 +1,5 @@
+ npm i 
+ axios  // for http requests
+ react-toastify for toast notifications
+ react-router-dom
+ 
