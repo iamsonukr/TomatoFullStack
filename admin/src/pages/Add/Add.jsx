@@ -1,26 +1,67 @@
 import React, { useEffect, useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const Add = () => {
+const Add = ({url}) => {
     const [image,setImage]=useState(false)
+ 
+    // manage the states of input field
     const[data,setData]=useState({
         name:"",
         description:"",
         price:"",
         category:"Salad",
     })
+
+    // change the state of input field
     const onChangeHandler=(event)=>{
         const name=event.target.name;
         const value=event.target.value;
         setData(data=>({...data,[name]:value}))
     } 
-    useEffect(()=>{
-        console.log(data);
-    },[data])
+
+    // sending the input data in database 
+    const handleSubmit=async(event)=>{
+        //to prevent the reload of the form
+        event.preventDefault();
+        //create new FormData to collect the all form data 
+
+        // formdata has its own variable to store the value of input field .
+        const formData=new FormData()
+        formData.append('name',data.name)
+        formData.append('description',data.description)
+        formData.append('price',Number(data.price))
+        formData.append('category',data.category)
+        formData.append('image',image)
+
+        // sending the data in database
+        // const response=await axios.post(`http://localhost:5000/api/food/addfood`,formData)
+        const response=await axios.post(`${url}/api/food/addfood`,formData)
+
+        // reseting input field after sending the data
+        if(response.data.success){
+            console.log("Item Added Successfully")
+            console.log(response)
+            setData({
+                name:"",
+                description:"",
+                price:"",
+                category:"Salad",
+            })
+            setImage(false)
+            toast.success(response.data.message)
+        }else{
+            console.log("sending failed")
+            toast.error(response.data.message)
+        }
+    }
+   
     return (
         <div className='add'>
-            <form className='flex-col' action="">
+            <form className='flex-col' onSubmit={handleSubmit}>
+
                 <div className="add-img-upload flex-col">
                     <p>Upload Image</p>
                     <label htmlFor="image">
@@ -28,6 +69,7 @@ const Add = () => {
                     </label>
                     <input onChange={(e)=>setImage(e.target.files[0])} type="file" id='image' hidden required />
                 </div>
+
                 <div className="add-product-name flex-col">
                     <p>Product name</p>
                     <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='type here' />
@@ -59,7 +101,6 @@ const Add = () => {
                     </div>
 
                 </div>
-
                 <button type='submit' className='add-btn' >ADD</button>
             </form>
         </div>

@@ -2,8 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import connectDB from './config/db.connect.js'
 import foodRouter from './routes/food.route.js'
-
-
+import userRouter from './routes/user.route.js'
+import 'dotenv/config'
 
 
 // app config
@@ -22,6 +22,8 @@ connectDB()
 
 //routes | api endpoints
 app.use('/api/food',foodRouter)
+
+app.use('/api/user',userRouter)
 
 //expose the image folder on the browser
 app.use('/images',express.static('uploads'))

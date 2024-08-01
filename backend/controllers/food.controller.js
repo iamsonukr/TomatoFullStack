@@ -55,4 +55,33 @@ const removeFood=async(req,res)=>{
 
 }
 
+// NOT TESTED
+
+// function to update food
+// const updateFood = async (req, res) => {
+//     const { id, name, description, price, category } = req.body;
+//     let updatedFields = { name, description, price, category };
+
+//     if (req.file && req.file.filename) {
+//         const food = await foodModel.findById(id);
+//         if (food.image) {
+//             fs.unlink(`uploads/${food.image}`, () => {});
+//         }
+//         updatedFields.image = req.file.filename;
+//     }
+
+//     try {
+//         const updatedFood = await foodModel.findByIdAndUpdate(id, updatedFields, { new: true });
+//         if (!updatedFood) {
+//             return res.status(404).json({ success: false, message: "Food not found" });
+//         }
+//         res.json({ success: true, message: "Food updated", data: updatedFood });
+//     } catch (error) {
+//         console.log(error);
+//         res.json({ success: false, message: "Food update failed" });
+//     }
+// }
+
+// export { addFood, listFood, removeFood, updateFood };
+
 export {addFood,listFood,removeFood}
