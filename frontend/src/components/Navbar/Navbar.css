@@ -63,6 +63,43 @@
     right:-9px;
 }
 
+.navbar-profile{
+    position: relative;
+}
+
+.nav-profile-drop-down{
+    z-index: 10;
+    position: absolute;
+    display: none;
+}
+
+.navbar-profile:hover .nav-profile-drop-down{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    list-style: none;
+}
+
+.nav-profile-drop-down li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-profile-drop-down img{
+    width: 20px;
+}
+
+.nav-profile-drop-down li:hover{
+    color: tomato;
+}
+
 /* large screen devices */
 @media (max-width:1050px){
     .navbar .logo{

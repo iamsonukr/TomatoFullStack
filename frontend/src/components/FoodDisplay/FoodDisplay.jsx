@@ -7,6 +7,7 @@ const FoodDisplay = ({ category }) => {
 
     // getting the food_list from the Context
     const { food_list } = useContext(StoreContext)
+    
     return (
         <div className='food-display' id='food-display'>
             <h2>Top Dishes Near you</h2>

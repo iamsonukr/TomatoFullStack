@@ -1,5 +1,6 @@
 import { createContext, useState,useEffect } from "react";
 import { food_list } from "../assets/assets";
+import axios from 'axios'
 
 // createing the context it is important to 
 export const StoreContext=createContext(null)
@@ -10,6 +11,9 @@ const StoreContextProvider=(prop)=>{
 
     // store the items added in cart --- adding each item as key value pair in object as ID:Quantity
     const [cartItems,setCartItems]=useState({});
+    const [token,setToken]=useState('')
+    const [food_list,setFoodList]=useState([])
+    const url='http://localhost:5000'
 
 
     // function to add value in cart
@@ -25,8 +29,8 @@ const StoreContextProvider=(prop)=>{
     const removeFromCart=(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
-    // storing each contextvalue in an object 
 
+    // storing each contextvalue in an object 
     const getTotalCartAmount=()=>{
         let totalAmount=0;
         for(const item in cartItems){
@@ -37,8 +41,26 @@ const StoreContextProvider=(prop)=>{
         }
 
         return totalAmount;
-
     }
+
+    // fetch the fooditem from database and store it in the variabale 
+    const fetchFoodlist=async(req,res)=>{
+        const response=await axios.get(`${url}/api/food/listfood`)
+        console.log(response.data.data)
+        setFoodList(response.data.data)
+    }
+
+    // this function is to stay logged in even after reloading the page
+    useEffect(()=>{
+        if(localStorage.getItem("token"))
+        {
+            setToken(localStorage.getItem("token"))
+        }
+        async function loadData(){
+            await fetchFoodlist()
+        }
+        loadData()
+    })
 
     const getCartItemsLength = () => {
         return Object.keys(cartItems).length;
@@ -52,14 +74,18 @@ const StoreContextProvider=(prop)=>{
         addToCart,
         removeFromCart,
         getTotalCartAmount,
-        getCartItemsLength
+        getCartItemsLength,
+        url,
+        token,
+        setToken
     }
 
 
     //\
     useEffect(()=>{
-        console.log(cartItems)
-      },[cartItems])
+        fetchFoodlist()
+        
+      },[])
 
     return(
         <StoreContext.Provider value={contextValue}>

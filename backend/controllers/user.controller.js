@@ -3,12 +3,29 @@ import jwt from 'jsonwebtoken'
 import bcrypt from "bcrypt"
 import validator from "validator"
 
-// login user
+/// login user
 const loginUser= async(req,res)=>{
+    //fetching the user input
     const {email,password}=req.body
-    
+    try{
+        //checking if email exist
+        const user=await userModel.findOne({email})
+        if(!user){
+            return res.json({success:false,message:"user does not exist..."})
+        }
+        //comparing password if user exist using bcrypt compare operator
+        const isMatch=await bcrypt.compare(password,user.password)
 
+        if(!isMatch){
+            return res.json({success:false,message:"Invalid Credentials"})
+        }
+        const token=createToken(user._id);
+        res.json({success:true,token})
 
+    }catch(error){
+        console.log(error)
+        res.json({success:false,message:"Error"})
+    }
 }
 
 /// Function to create token
@@ -16,7 +33,7 @@ const createToken=(id)=>{
     return jwt.sign({id},process.env.JWT_SECRET)
 }
 
-//register
+///register
 const registerUser=async(req,res)=>{
     const {name,password,email}=req.body
     try{

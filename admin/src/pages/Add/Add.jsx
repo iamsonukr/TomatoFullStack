@@ -28,7 +28,8 @@ const Add = ({url}) => {
         event.preventDefault();
         //create new FormData to collect the all form data 
 
-        // formdata has its own variable to store the value of input field .
+        // formdata has its own variable to store the value of input field
+        // Formdata is useful when we are sending not-textual data
         const formData=new FormData()
         formData.append('name',data.name)
         formData.append('description',data.description)

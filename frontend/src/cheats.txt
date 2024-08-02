@@ -13,3 +13,5 @@
 //popup => LoginPopup.jsx [LoginPopup.css]
 
 //Calculate total cart price => StoreContext.jsx
+
+// go to certain page after doing certain thing // Navbar.jsx

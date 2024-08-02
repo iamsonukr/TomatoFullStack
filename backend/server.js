@@ -4,6 +4,7 @@ import connectDB from './config/db.connect.js'
 import foodRouter from './routes/food.route.js'
 import userRouter from './routes/user.route.js'
 import 'dotenv/config'
+import cartRouter from './routes/cart.route.js'
 
 
 // app config
@@ -24,6 +25,8 @@ connectDB()
 app.use('/api/food',foodRouter)
 
 app.use('/api/user',userRouter)
+
+app.use('/api/cart',cartRouter)
 
 //expose the image folder on the browser
 app.use('/images',express.static('uploads'))
