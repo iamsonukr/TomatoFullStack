@@ -3,6 +3,13 @@ import jwt from 'jsonwebtoken'
 import bcrypt from "bcrypt"
 import validator from "validator"
 
+
+/// Function to create token
+const createToken=(id)=>{
+    return jwt.sign({id},process.env.JWT_SECRET)
+}
+
+
 /// login user
 const loginUser= async(req,res)=>{
     //fetching the user input
@@ -26,11 +33,6 @@ const loginUser= async(req,res)=>{
         console.log(error)
         res.json({success:false,message:"Error"})
     }
-}
-
-/// Function to create token
-const createToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET)
 }
 
 ///register
@@ -73,7 +75,6 @@ const registerUser=async(req,res)=>{
     }catch(error){
         console.log(error)
         res.json({success:false,message:"Error"})
-        
     }
 }
 

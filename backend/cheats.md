@@ -33,6 +33,14 @@ const addFood = async (req, res) => {}
 // BCRYPT
 controller->user.contoller.js
 
+//middleware to verify token 
+auth.middleware.js
+
+//TO STUDY
+cart.controller.js
+
+
+
 
 
 
