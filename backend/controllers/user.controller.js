@@ -78,4 +78,14 @@ const registerUser=async(req,res)=>{
     }
 }
 
-export {loginUser,registerUser}
+// function to get users
+const getUsers=async(req,res)=>{
+    try{
+        const users=await userModel.find({})
+        res.json({success:true,data:users})
+    }catch(error){
+        res.json({success:false, data:error})
+    }
+}
+
+export {loginUser,registerUser,getUsers}

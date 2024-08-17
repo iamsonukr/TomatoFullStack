@@ -17,17 +17,25 @@ const StoreContextProvider=(prop)=>{
 
 
     // function to add value in cart
-    const addToCart=(itemId)=>{
+    const addToCart=async(itemId)=>{
         if(!cartItems[itemId]){
             setCartItems((prev)=>({...prev,[itemId]:1}))
         }else{
             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
+        if(token){
+            // pushing the itemid to the api that will send the data to the database
+            await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+        }
     }
 
     // function to remove from cart
-    const removeFromCart=(itemId)=>{
+    const removeFromCart=async(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
+        if(token){
+            // pushing the itemid to the api that will send the data to the database
+            await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+        }
     }
 
     // storing each contextvalue in an object 
@@ -39,7 +47,6 @@ const StoreContextProvider=(prop)=>{
                 totalAmount+=itemInfo.price* cartItems[item];
             }
         }
-
         return totalAmount;
     }
 
@@ -50,17 +57,26 @@ const StoreContextProvider=(prop)=>{
         setFoodList(response.data.data)
     }
 
+    const loadCartData=async(token)=>{
+        const response=await axios.post(url+"/api/cart/get",{},{headers:{token}})
+        console.log(response)
+        setCartItems(response.data.data)
+
+    }
+
     // this function is to stay logged in even after reloading the page
     useEffect(()=>{
-        if(localStorage.getItem("token"))
-        {
-            setToken(localStorage.getItem("token"))
-        }
+       
         async function loadData(){
             await fetchFoodlist()
+            if(localStorage.getItem("token"))
+                {
+                    setToken(localStorage.getItem("token"))
+                    await loadCartData(localStorage.getItem("token"))
+                }
         }
         loadData()
-    })
+    },[])
 
     const getCartItemsLength = () => {
         return Object.keys(cartItems).length;

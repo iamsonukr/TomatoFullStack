@@ -5,6 +5,7 @@ import foodRouter from './routes/food.route.js'
 import userRouter from './routes/user.route.js'
 import 'dotenv/config'
 import cartRouter from './routes/cart.route.js'
+import orderRouter from './routes/order.route.js'
 
 
 // app config
@@ -27,6 +28,9 @@ app.use('/api/food',foodRouter)
 app.use('/api/user',userRouter)
 
 app.use('/api/cart',cartRouter)
+
+
+app.use('/api/order',orderRouter)
 
 //expose the image folder on the browser
 app.use('/images',express.static('uploads'))
