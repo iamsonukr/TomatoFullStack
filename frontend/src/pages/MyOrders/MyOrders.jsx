@@ -34,6 +34,11 @@ const MyOrders = () => {
                                     return item.name+" x "+item.quantity + ", "
                                 }
                             })}</p>
+
+                            <p>${order.amount}.00</p>
+                            <p>Items: {order.items.lenght}</p>
+                            <p><span>&#x25cf;</span> <b>{order.status}</b> </p>
+                            <button onClick={fetchOrders} >Track Order</button>
                         </div>
                     )
                 })
