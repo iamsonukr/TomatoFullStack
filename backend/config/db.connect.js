@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const connectDB=async()=>{
     try{
-        await mongoose.connect('mongodb+srv://victoriastark357:QK15LE0VqavMFLtH@clusterfortomatp.janldjx.mongodb.net/TomatoFullStack')
+        await mongoose.connect(process.env.DB_URL)
         .then(()=>{
             console.log("DB CONNECTED")
         })
