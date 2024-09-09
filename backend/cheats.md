@@ -1,3 +1,4 @@
+npm init // initialize node project than install libraries
 packages used
 npm i 
 express // backed 
