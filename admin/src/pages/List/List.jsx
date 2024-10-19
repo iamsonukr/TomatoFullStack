@@ -51,7 +51,7 @@ const List = ({url}) => {
               return(
                 <div key={index} className='list-table-format'>
                   {/* <img src={`${url}/uploads`+item.image} alt="" /> */}
-                  <img src={`http://localhost:5000/images/`+item.image} alt="" />
+                  <img src={`http://localhost:5001/images/`+item.image} alt="" />
                   <p>{item.name}</p>
                   <p>{item.category}</p>
                   <p>{item.price}</p>
