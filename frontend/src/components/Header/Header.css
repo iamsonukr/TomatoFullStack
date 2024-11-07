@@ -1,9 +1,12 @@
 .header{
     height: 34vw;
-    margin:30px auto;
-    background: url('../../assets/header_img.png') no-repeat ;
-    background-size: contain;
+    margin: 10vh 0 19vh 0;
+    background: url('../../assets/header_img.jpg') no-repeat ;
+    background-size: cover;
     position: relative;
+    transform: scale(1.25);
+
+    
 }
 
 .header-contents{
@@ -16,12 +19,19 @@
     bottom: 10%;
     left: 6vw;
     animation: fadeIn 3s;
+    
+    background-color: rgba(124, 14, 14, 0.1); /* Lightly transparent background */
+    backdrop-filter: blur(3px); /* Adjust the blur intensity */
+    border-radius: 10px; /* Optional: gives a smooth rounded edge */
+    padding : 10px;
+  
 }
 
 .header-contents h2{
     font-weight: 500;
+    /* color: #FF6F3C; */
     color: white;
-    font-size: max(22px,4.5vw);
+    font-size: max(22px,4.2vw);
 }
 .header-contents p{
     /* font-weight: 500; */
@@ -39,6 +49,9 @@
     border-radius: 50px;
     cursor: pointer;
 }
+.navbar .logo{
+    width: 190px;
+}
 
 @media (max-width:1050px){
 
@@ -51,6 +64,7 @@
 }
 
 @media (max-width:750px){
+ 
     .header h2{
        font-size: 5vw;
     }
@@ -62,6 +76,13 @@
     }
     .header-contents button{
         /* padding:2vw 4vw; */
+    }
+    .header{
+        height: 50vw;
+        margin: 5vh 0 ;
+    }
+    .navbar .logo{
+        width: 120px;
     }
 }
 

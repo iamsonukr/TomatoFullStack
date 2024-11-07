@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='footer' id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="" />
+          <img  className='footer-logo' src={assets.logo} alt=""  />
           <p> Whether you’re craving a piping hot pizza, a juicy burger, fresh sushi, or a healthy salad, we’ve got you covered. Here’s why Tomato is your go-to destination for online food ordering:</p>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="" />

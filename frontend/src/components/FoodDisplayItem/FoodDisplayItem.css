@@ -3,7 +3,7 @@
     /* flex grown flex sink initial size  */
     flex:1 1 240px;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.267);
     transition: 0.3s;
     animation: fadeIn 1s;

@@ -1,6 +1,6 @@
 import basket_icon from './basket_icon.png'
 import logo from './logo.png'
-import header_img from './header_img.png'
+import header_img from './header_img.jpg'
 import search_icon from './search_icon.png'
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'
@@ -10,6 +10,13 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+
+import chef2 from './chef2.jpeg'
+import chef3 from './chef3.jpeg'
+import chef4 from './chef4.jpg'
+import chef5 from './chef5.jpg'
+import chef6 from './chef6.jpeg'
+
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -79,7 +86,12 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    chef2,
+    chef3,
+    chef4,
+    chef5,
+    chef6
 }
 
 export const menu_list = [
