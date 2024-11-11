@@ -1,0 +1,89 @@
+.our-chefs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.our-chefs-head{
+    text-align: center;
+    font-size: 40px;
+}
+
+.our-chefs-para{
+    text-align: center;
+    padding: 40px 0px;
+}
+
+.our-chefs-boxes{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-bottom: 100px;
+    flex-wrap: wrap;
+    
+}
+
+.box{
+    width: 215px;
+    height: 235px;
+    border-radius: 10px;
+    background-color: red;
+    padding: 20px 20px;
+    position: relative;
+}
+.box>p{
+    text-align: left;
+    font-family: poppins;
+    position: relative;
+    top: 140px;
+    /* background-color: rgba(rgb(220, 53, 53), green, blue, 0.8); */
+}
+.box img{
+    position: relative;
+    width:100%;
+}
+
+.box .series{
+    font-size: 109px;
+    position: relative;
+    top: 30px;
+    left: 130px;
+    color: white;
+    display: none;
+}
+
+.chef-name{
+    color: black;
+    background-color: rgba(266, 266, 266, 0.4);
+    font-weight: 500;
+    padding: 3px;
+    backdrop-filter: blue(4px);
+}
+
+.box1{
+    background-image: url('../../assets/chef2.jpeg');
+    background-size: cover;
+}
+.box2{
+    background-image: url('../../assets/chef3.jpeg');
+    background-size: cover;
+}
+.box3{
+    background-image: url('../../assets/chef4.jpg');
+    background-size: cover;
+}
+.box4{
+    background-image: url('../../assets/chef5.jpg');
+    background-size: cover;
+}
+
+@media (max-width:750px) {
+    .our-chefs-boxes{
+        flex-direction: column;
+        gap: 10px;
+        
+    }
+}
