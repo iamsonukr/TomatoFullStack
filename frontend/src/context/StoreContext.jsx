@@ -54,12 +54,10 @@ const getTotalCartAmount = () => {
             // Clean both IDs before comparison
             const cleanedItemId = cleanId(item);
             const itemInfo = food_list.find(product => cleanId(product._id) === cleanedItemId);
-            
-            console.log("Current item ID:", cleanedItemId);
-            console.log("Found item info:", itemInfo);
+
 
             if (itemInfo) {
-                totalAmount += itemInfo.price * cartItems[item];
+                totalAmount += (itemInfo.price * cartItems[item]);
             } else {
                 console.log(`Item not found for ID: ${cleanedItemId}`);
             }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import './PlaceOrder.css';
 import axios from 'axios';
@@ -6,11 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'; // Proper import for the logo
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);  
   
-  let amount = getTotalCartAmount() * 100; // Razorpay takes amount in paise
+  let amount = (getTotalCartAmount() + 40)*100 ; // Razorpay takes amount in paise
   const currency = "INR";
   const receiptId = "ID-TEST-009";
+
 
   // Razorpay payment handler
   const paymentHandler = async (e) => {
@@ -32,21 +33,22 @@ const PlaceOrder = () => {
       });
 
       const order = response.data;
+      console.log(order)
 
       // Razorpay configuration
       const paymentWindowConfig = {
         key: "rzp_test_RakCckTlR6axJb",
-        amount: amount+40,
+        amount: amount,
         currency,
         name: "Foodie's Fusion",
         description: "Payment for food",
         image: logo,
         order_id: order.id,
         handler: async (response) => {
-          console.log('Payment Successful', response);
+          // console.log('Payment Successful', response);
           try {
-            const validateRes = await axios.post(`${url}/api/order/verify`, response);
-            console.log(validateRes.data);
+            const validateRes = await axios.post(`${url}/api/order/verify`,response);
+            console.log("validation data", validateRes.data);
           } catch (error) {
             console.error("Payment validation failed:", error);
           }
@@ -133,7 +135,7 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Total</p>
-              <p>₹{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 40}</p>
+              <p>₹{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()+40} </p>
             </div>
             <hr />
           </div>
