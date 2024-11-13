@@ -36,9 +36,9 @@ const PlaceOrder = () => {
       // Razorpay configuration
       const paymentWindowConfig = {
         key: "rzp_test_RakCckTlR6axJb",
-        amount: amount,
+        amount: amount+40,
         currency,
-        name: "Acme Corp",
+        name: "Foodie's Fusion",
         description: "Payment for food",
         image: logo,
         order_id: order.id,

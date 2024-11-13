@@ -6,9 +6,9 @@ const TopChefs = () => {
   return (
     <div className="our-chefs">
   {/* Category */}
-  <h2 className="our-chefs-head">Top our-chefs</h2>
+  <h2 className="our-chefs-head">Our Top Chefs</h2>
   <p className="our-chefs-para">
-    Explore top-rated car covers and high-quality Truck Curtains from polco
+    Get the meal served on your plate by the best chefs across the contry.
   </p>
 
   <div className="our-chefs-boxes">

@@ -10,6 +10,7 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+import app_mock from './app_mock.png'
 
 import chef2 from './chef2.jpeg'
 import chef3 from './chef3.jpeg'
@@ -67,6 +68,8 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
+import cart_icon from './cart_icon.png'
+
 export const assets = {
     logo,
     basket_icon,
@@ -91,7 +94,9 @@ export const assets = {
     chef3,
     chef4,
     chef5,
-    chef6
+    chef6,
+    app_mock,
+    cart_icon
 }
 
 export const menu_list = [

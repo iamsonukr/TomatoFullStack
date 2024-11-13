@@ -27,6 +27,7 @@ const StoreContextProvider=(prop)=>{
             // pushing the itemid to the api that will send the data to the database
             await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
         }
+        console.log("Itenm added to cart", cartItems)
     }
 
     // function to remove from cart
@@ -39,21 +40,44 @@ const StoreContextProvider=(prop)=>{
     }
 
     // storing each contextvalue in an object 
-    const getTotalCartAmount=()=>{
-        let totalAmount=0;
-        for(const item in cartItems){
-            if(cartItems[item]>0){
-                let itemInfo=food_list.find((product)=>product._id===item);
-                totalAmount+=itemInfo.price* cartItems[item];
+    // Helper function to clean ID strings
+const cleanId = (id) => id.trim().replace(/['"]/g, '');
+
+const getTotalCartAmount = () => {
+    let totalAmount = 0;
+    console.log("Inside the context");
+    console.log("Cart Items:", cartItems);
+    console.log("Food List:", food_list);
+
+    for (const item in cartItems) {
+        if (cartItems[item] > 0) {
+            // Clean both IDs before comparison
+            const cleanedItemId = cleanId(item);
+            const itemInfo = food_list.find(product => cleanId(product._id) === cleanedItemId);
+            
+            console.log("Current item ID:", cleanedItemId);
+            console.log("Found item info:", itemInfo);
+
+            if (itemInfo) {
+                totalAmount += itemInfo.price * cartItems[item];
+            } else {
+                console.log(`Item not found for ID: ${cleanedItemId}`);
             }
         }
-        return totalAmount;
     }
+
+    setTimeout(() => {
+        console.log("Outside the context");
+    }, 2000);
+
+    return totalAmount;
+};
 
     // fetch the fooditem from database and store it in the variabale 
     const fetchFoodlist=async(req,res)=>{
         const response=await axios.get(`${url}/api/food/listfood`)
         console.log(response.data.data)
+        console.log()
         setFoodList(response.data.data)
     }
 

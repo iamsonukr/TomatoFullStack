@@ -1,25 +1,227 @@
-.app-download{
-    margin: auto auto;
-    margin-top: 100px;
-    font-size:max(3vw, 20px);
-    text-align: center;
-    font-weight: 500;
-}
-
-.app-download-platform{
+.app-download-container {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #fff5f5 0%, #ffffff 100%);
+    min-height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: max(10px, 2vw );
-    margin-top: 40px;
-}
-
-.app-download-platform img{
-    width: max(30vw,120px);
-    max-width: 180px;
-    transition: 0.5s;
+  }
+  
+  .app-info {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .phones-container {
+    position: relative;
+    padding: 20px;
+  }
+  
+  .phone-mockup {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    transform: rotateY(-10deg);
+    transition: transform 0.5s ease;
+    /* box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .phone-mockup:hover {
+    transform: rotateY(360deg);
+  }
+  
+  .download-content {
+    padding: 20px;
+  }
+  
+  .download-content h1 {
+    font-size: 48px;
+    color: #1c1c1c;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .download-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .download-form {
+    margin-bottom: 40px;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-}
-.app-download-platform img:hover{
-    transform: scale(1.05);
-}
-
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .radio-label input {
+    display: none;
+  }
+  
+  .radio-label.active {
+    background-color: #fce8e8;
+  }
+  
+  .radio-text {
+    font-size: 16px;
+    color: #1c1c1c;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .input-group input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #ef4f5f;
+    box-shadow: 0 0 0 3px rgba(239, 79, 95, 0.1);
+  }
+  
+  .share-button {
+    padding: 15px 30px;
+    background-color: #ef4f5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .share-button:hover {
+    background-color: #dc3545;
+    transform: translateY(-2px);
+  }
+  
+  .share-button.animating {
+    background-color: #dc3545;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  
+  .download-options {
+    margin-top: 40px;
+  }
+  
+  .download-options p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .store-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .store-button {
+    transition: transform 0.3s ease;
+  }
+  
+  .store-button:hover {
+    transform: translateY(-3px);
+  }
+  
+  .store-button img {
+    height: 40px;
+    width: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .app-info {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .phones-container {
+      order: -1;
+    }
+  
+    .phone-mockup {
+      transform: none;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    .radio-group {
+      justify-content: center;
+    }
+  
+    .store-buttons {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .download-content h1 {
+      font-size: 36px;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .share-button {
+      width: 100%;
+    }
+  
+    .store-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .store-button img {
+      height: 50px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .download-content > * {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .download-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .download-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .download-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .download-content > *:nth-child(4) { animation-delay: 0.4s; }

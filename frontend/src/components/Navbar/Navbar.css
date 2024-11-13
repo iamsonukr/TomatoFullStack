@@ -12,6 +12,10 @@
     width: 150px;
 }
 
+.cart-icon{
+    width: 50px;
+}
+
 .navbar-menu{
     display: flex;
     list-style: none;
@@ -36,16 +40,18 @@
     color: #49557e;
     border: 1px solid tomato;
     padding: 10px 30px ;
-    border-radius: 50px;
+    border-radius: 10px 0;
     cursor: pointer;
+
 }
 
 .navbar-right button:hover{
-    background-color: #fff4f2;
+    background-color: tomato;
     transition: 0.3s;
+    color: white;
 }
 .navbar-menu .active{
-    padding-bottom: 10px;
+    padding-bottom: 10px ;
     border-bottom: 1px solid black;
 }
 
@@ -60,8 +66,8 @@
     min-height: 10px;
     border-radius: 5px;
     background-color: tomato;
-    top: -10px;
-    right:-9px;
+    top: 10px;
+    right:0px;
 }
 
 .navbar-profile{

@@ -39,7 +39,7 @@ const Navbar = ({setShowLogin}) => {
         <div className="navbar-right">
             <img src={assets.search_icon} alt="" />
             <div className="navbar-search-icon">
-                <Link to={'/cart'}><img src={assets.bag_icon} alt="" /></Link>
+                <Link to={'/cart'}><img src={assets.cart_icon} alt="" className='cart-icon' /></Link>
                 {
                     getCartItemsLength()===0
                     ?<></>
@@ -53,7 +53,7 @@ const Navbar = ({setShowLogin}) => {
                 :<div className='navbar-profile'>
                     <img src={assets.profile_icon} alt="" />
                     <ul className="nav-profile-drop-down">
-                        <li onClick={()=>navigate('/myorders')} ><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                        <li onClick={()=>navigate('/myorders')} ><img src={assets.cart_icon} alt="" className='cart-icon' /><p>Orders</p></li>
                         <hr />
                         <li onClick={logout} ><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
                     </ul>
