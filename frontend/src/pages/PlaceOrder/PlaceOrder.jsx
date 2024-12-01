@@ -79,6 +79,7 @@
         paymentWindow.on("payment.failed", function (response) {
           alert("Payment failed: " + response.error.description);
         });
+        
         paymentWindow.open();
       } catch (error) {
         console.error("Error placing order:", error);
