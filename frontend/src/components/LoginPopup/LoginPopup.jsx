@@ -46,6 +46,7 @@ const LoginPopup = ({setShowLogin}) => {
     // geting the response and saving token in localStorage
     if(response.data.success){
       setToken(response.data.token)
+      console.log("The token is ",response.data.token)
       localStorage.setItem("token",response.data.token)
       setShowLogin(false)
     }
