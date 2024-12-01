@@ -29,12 +29,10 @@ app.use('/api/user',userRouter)
 
 app.use('/api/cart',cartRouter)
 
-
 app.use('/api/order',orderRouter)
 
 //expose the image folder on the browser
 app.use('/images',express.static('uploads'))
-
 
 app.get('/',(req,res)=>{
     

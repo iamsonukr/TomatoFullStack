@@ -20,6 +20,7 @@ function App() {
     <div className="app-component">
       <Sidebar/>
       <Routes>
+        <Route path="/" element={<Add url={url}/>}/>
         <Route path="/add" element={<Add url={url}/>}/>
         <Route path='/orders' element={<Orders url={url}/>}/>
         <Route path='/list' element={<List url={url}/>}/>

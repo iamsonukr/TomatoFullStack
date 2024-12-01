@@ -103,17 +103,43 @@ const placeOrder=async(req,res)=>{
     }
 }
 
+const sendOrder=async(req,res)=>{
+    try {
+        const { userId, items, amount, address, status, payment } = req.body;
+
+        // Create a new order instance
+        const newOrder = new Order({
+            userId,
+            items,
+            amount,
+            address,
+            status: status || "Food Processing", // Use default if not provided
+            payment: payment || false
+        });
+        const savedOrder = await newOrder.save();
+    } catch (error) {
+        
+    }
+}
+
 //api to validate order
 const verifyOrder=async(req,res)=>{
     // Destructureing is based on names of the object not the order of them
-    const {razorpay_payment_id,razorpay_order_id,razorpay_signature}=req.body 
-    const sha=crypto.createHmac("sha256",process.env.RPAY_SECRET)
-    sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
-    const digest=sha.digest("hex")
-    if(digest!==razorpay_signature){
-        return res.status(400).json({msg:"Transaction is not legit !"})
+    console.log("VEryfinug",)
+    try{
+        const {razorpay_payment_id,razorpay_order_id,razorpay_signature}=req.body 
+        const sha=crypto.createHmac("sha256",process.env.RPAY_SECRET)
+        sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+        const digest=sha.digest("hex")
+        if(digest!==razorpay_signature){
+            return res.status(400).json({msg:"Transaction is not legit !"})
+        }
+        
+        console.log("VEryfinug 2",)
+        res.json({msg:"success",orderId:razorpay_order_id,paymentId:razorpay_payment_id})
+    }catch{
+        res.json({msg:"Failed",orderId:razorpay_order_id,paymentId:razorpay_payment_id})
     }
-    res.json({msg:"success",orderId:razorpay_order_id,paymentId:razorpay_payment_id})
 }
 
 
@@ -154,4 +180,4 @@ const updateStatus=async(req,res)=>{
      
 }
 
-export {placeOrder,verifyOrder,userOrders,listOrder,updateStatus}
+export {placeOrder,verifyOrder,userOrders,listOrder,updateStatus,sendOrder}
