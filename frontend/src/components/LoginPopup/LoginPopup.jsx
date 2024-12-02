@@ -9,6 +9,7 @@ const LoginPopup = ({setShowLogin}) => {
   // this form is using two state One to show / hide login form -> Second to switch between login and sign in form
   const [currState,setCurrState]=useState("Login")
   const {url,setToken}=useContext(StoreContext)
+  const {userId,setUserId}=useContext(StoreContext)
 
   // storing state of input fields
   const [data,setData]=useState(
@@ -42,6 +43,8 @@ const LoginPopup = ({setShowLogin}) => {
 
     //sending the data to to database
     const response=await axios.post(newUrl,data)
+    console.log("This is the data",response.data.userId)
+    setUserId(response.data.userId)
 
     // geting the response and saving token in localStorage
     if(response.data.success){

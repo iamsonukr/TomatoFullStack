@@ -7,12 +7,13 @@ const FoodDisplay = ({ category }) => {
 
     // getting the food_list from the Context
     const { food_list } = useContext(StoreContext)
+    console.log("Food list is : ", food_list)
     
     return (
         <div className='food-display' id='food-display'>
             <h2>Top Dishes Near you</h2>
             <div className="food-display-list">
-                {
+                {   
                     food_list.map((item, index) => {
       
                         // for each  item if category is all every item is display or if the item passes the second condition it will be displayed

@@ -27,7 +27,9 @@ const loginUser= async(req,res)=>{
             return res.json({success:false,message:"Invalid Credentials"})
         }
         const token=createToken(user._id);
-        res.json({success:true,token})
+        let userId=user._id
+        console.log(userId)
+        res.json({success:true,token,userId})
 
     }catch(error){
         console.log(error)
@@ -70,8 +72,10 @@ const registerUser=async(req,res)=>{
         const user=await newUser.save();
         //creating token
         const token=createToken(user._id)
+        console.log("user has been created",user._id)
+        let userId=user._id
         //sending response and token
-        res.json({success:true,token})
+        res.json({success:true,token,userId})
     }catch(error){
         console.log(error)
         res.json({success:false,message:"Error"})

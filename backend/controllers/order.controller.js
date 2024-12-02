@@ -122,24 +122,47 @@ const placeOrder = async (req, res) => {
     }
   };
 
-const sendOrder=async(req,res)=>{
+  const sendOrder = async (req, res) => {
     try {
         const { userId, items, amount, address, status, payment } = req.body;
+         console.log(req.body)
+
+        // Validate required fields
+        if (!userId || !items || !amount || !address) {
+            return res.status(400).json({ msg: "All fields are required." });
+        }
 
         // Create a new order instance
-        const newOrder = new Order({
+        const newOrder = new orderModel({
             userId,
             items,
             amount,
             address,
-            status: status || "Food Processing", // Use default if not provided
-            payment: payment || false
+            status: status || "Food Processing", // Default status if not provided
+            payment: payment || false // Default payment status if not provided
         });
+
+        // Save the order to the database
         const savedOrder = await newOrder.save();
+
+        // Send a success response
+        return res.status(201).json({
+            msg: "Order placed successfully.",
+            order: savedOrder
+        });
+
     } catch (error) {
-        
+        console.error("Error saving order:", error);
+
+        // Send a generic error response
+        return res.status(500).json({
+            msg: "Internal server error. Unable to place order.",
+            error: error.message  // It's safer to send only the error message
+        });
     }
-}
+};
+
+
 
 
 //api to validate order
