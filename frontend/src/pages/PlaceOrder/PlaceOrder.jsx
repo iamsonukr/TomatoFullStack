@@ -123,11 +123,12 @@ const PlaceOrder = () => {
   
   async function sendOrder() {
     console.log("Payment was successfull sending your order to database...", userId)
-    const items = Object.values(cartItems);
+    // const items = Object.values(cartItems);
+    console.log("The cart items are",cartItems)
     try {
       const orderDetails = {
         userId,
-        items: items,
+        items: cartItems,
         amount: getTotalCartAmount(),
         address: {
           firstName: data.firstName,
@@ -154,6 +155,7 @@ const PlaceOrder = () => {
   
     }
   }
+
 
 
   return (

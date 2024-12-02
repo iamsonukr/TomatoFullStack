@@ -13,3 +13,4 @@ const orderSchema = new mongoose.Schema({
 // Ensure you are exporting the model correctly
 const orderModel = mongoose.model('Order', orderSchema);
 export default orderModel;
+

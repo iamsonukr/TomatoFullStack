@@ -10,7 +10,7 @@ export const StoreContext=createContext(null)
 const StoreContextProvider=(prop)=>{
 
     // store the items added in cart --- adding each item as key value pair in object as ID:Quantity
-    const [cartItems,setCartItems]=useState({});
+    const [cartItems,setCartItems]=useState([]);
     const [token,setToken]=useState('')
     const [food_list,setFoodList]=useState([])
     const [userId, setUserId]=useState(null)

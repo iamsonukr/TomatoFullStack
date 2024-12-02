@@ -4,11 +4,14 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    color: white !important;
+ 
 }
 
 body{
     min-height: 100vh;
-    background-color: #fcfcfc;
+    background-color: #1f2d3b;
+    color: white !important;
 
 }
 
