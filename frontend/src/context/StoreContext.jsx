@@ -14,7 +14,9 @@ const StoreContextProvider=(prop)=>{
     const [token,setToken]=useState('')
     const [food_list,setFoodList]=useState([])
     const [userId, setUserId]=useState(null)
-    const url='http://localhost:5000'
+    // const url='http://localhost:5000'
+    const url='https://foodfusionfullstack.onrender.com'
+
 
 
     // function to add value in cart
