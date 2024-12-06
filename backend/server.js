@@ -35,7 +35,7 @@ app.use('/api/order',orderRouter)
 app.use('/images',express.static('uploads'))
 
 app.get('/',(req,res)=>{
-    
+    res.send("<h1>Foodies backend is running </h1>")
 })
 
 
