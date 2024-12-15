@@ -5,9 +5,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'; // Proper import for the logo
 
-const PlaceOrder = () => {
-
+const PlaceOrder = ({setShowLogin}) => {
   const { token,cartItems, getTotalCartAmount,userId, url } = useContext(StoreContext)
+  
   const {}=useContext(StoreContext)
   const [data, setData] = useState({
     firstName: "",
@@ -20,8 +20,15 @@ const PlaceOrder = () => {
     country: "",
     phone: ""
   });
-
-
+  
+  
+    useEffect(()=>{
+      if(!token){
+        setShowLogin(true)
+      }
+  
+    })
+  
   const navigate = useNavigate();
 
   // const send Order

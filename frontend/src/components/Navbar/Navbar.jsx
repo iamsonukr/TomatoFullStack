@@ -51,11 +51,11 @@ const Navbar = ({setShowLogin}) => {
             {
                 !token?<button onClick={()=>setShowLogin(true)}>sign in</button>
                 :<div className='navbar-profile'>
-                    <img src={assets.profile_icon} alt="" />
+                    <img src={assets.profile_icon} alt="" width={60}/>
                     <ul className="nav-profile-drop-down">
                         <li onClick={()=>navigate('/myorders')} ><img src={assets.cart_icon} alt="" className='cart-icon' /><p>Orders</p></li>
                         <hr />
-                        <li onClick={logout} ><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+                        <li onClick={logout} ><img src={assets.logout_icon} alt="" width={10} /><p>Logout</p></li>
                     </ul>
 
                 </div>

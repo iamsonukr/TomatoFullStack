@@ -8,8 +8,10 @@ const LoginPopup = ({setShowLogin}) => {
 
   // this form is using two state One to show / hide login form -> Second to switch between login and sign in form
   const [currState,setCurrState]=useState("Login")
+  const [isLogging,setIsLogging]=useState(false)
   const {url,setToken}=useContext(StoreContext)
   const {userId,setUserId}=useContext(StoreContext)
+
 
   // storing state of input fields
   const [data,setData]=useState(
@@ -29,6 +31,11 @@ const LoginPopup = ({setShowLogin}) => {
 
   /// Login | Register API Call
   const onLogin=async(event)=>{
+    if(isLogging){
+      window.alert("Please wait Loggin in...")
+      return
+    }
+    setIsLogging(true)
     // prevent reloading
     event.preventDefault()
     let newUrl=url;
@@ -56,6 +63,7 @@ const LoginPopup = ({setShowLogin}) => {
     else{
       alert(response.data.message)
     }
+    setIsLogging(false)
   }
 
   return (

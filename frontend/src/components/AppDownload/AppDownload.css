@@ -25,7 +25,8 @@
     max-width: 500px;
     height: auto;
     transform: rotateY(-10deg);
-    transition: transform 0.5s ease;
+    /* transition: transform 0.5s ease; */
+    transition: transform 1s;
     /* box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1); */
   }
   
@@ -149,6 +150,7 @@
   
   .store-button:hover {
     transform: translateY(-3px);
+
   }
   
   .store-button img {
@@ -218,7 +220,7 @@
   }
   
   .download-content > * {
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 2ms ease forwards;
   }
   
   .download-content > *:nth-child(1) { animation-delay: 0.1s; }

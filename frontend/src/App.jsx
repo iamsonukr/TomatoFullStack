@@ -11,7 +11,8 @@ import MyOrders from './pages/MyOrders/MyOrders'
 
 const App = () => {
   const[showLogin,setShowLogin]=useState(false)
-  const url='https://foodfusionfullstack.onrender.com'
+  // const url='https://foodfusionfullstack.onrender.com'
+  // const url='https://foodfusionfullstack.onrender.com'
   return (
     <>
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
@@ -19,8 +20,8 @@ const App = () => {
       <div className='app'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<PlaceOrder />} />
+          <Route path='/cart' element={<Cart setShowLogin={setShowLogin} showLogin={showLogin} />} />
+          <Route path='/order' element={<PlaceOrder setShowLogin={setShowLogin} showLogin={showLogin} />} />
           <Route path='/verify' element={<Verify />} />
           <Route path='/myorders' element={<MyOrders />} />
         </Routes>
