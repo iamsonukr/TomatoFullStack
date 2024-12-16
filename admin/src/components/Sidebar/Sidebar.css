@@ -11,6 +11,10 @@
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
+    /* background-color: rgb(255, 255, 255); */
+    box-sizing: border-box;
+    padding: 10px;
+    color: black;
 }
 
 .sidebar-option {
@@ -21,16 +25,17 @@
     border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
-    color: #333333;
+    color: #f5f5f5;
     transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
 }
 
 .sidebar-option:hover {
-    background-color: #f5f5f5;
+    background-color: #ff8543;
 }
 
 .sidebar-option.active {
-    background-color: #222224;
+    background-color: #ff8543;
 }
 
 .sidebar-option img {
@@ -43,6 +48,7 @@
     margin: 0;
     font-size: 1rem;
     font-weight: 500;
+    color: #010101 !important;
 }
 
 /* Responsive adjustments */

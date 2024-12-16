@@ -6,6 +6,12 @@
     padding: 12px 15px;
     border: 1px solid #cacaca;
     font-size: 13px;
+    
+}
+.listMain{
+    height: 100vh;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .list-table-format title{
@@ -18,6 +24,11 @@
 
 .cursor{
     cursor:pointer;
+
+}
+.cursor:hover{
+    color: red !important;
+    transform: scale(1.2);
 }
 
 @media (max-width:600px){
@@ -28,4 +39,16 @@
     .list-table-format .title{
         display: none;
     }
+}
+
+p{
+    color: white;
+}
+
+table{
+    color: white;
+}
+
+.list-table-format{
+    color: white;
 }

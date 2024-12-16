@@ -7,7 +7,36 @@ import logo from '../../assets/logo.png'; // Proper import for the logo
 
 const PlaceOrder = () => {
 
-  const { token,cartItems, getTotalCartAmount,userId, url } = useContext(StoreContext)
+  const { token,cartItems,food_list, getTotalCartAmount,userId, url } = useContext(StoreContext)
+  const [foodOrders,setFoodOrders]=useState([])
+
+  useEffect(() => {
+    // Function to update foodOrders
+    const updateFoodOrders = () => {
+        if (typeof cartItems !== "object" || Array.isArray(cartItems)) {
+            console.error("cartItems is not an object:", cartItems);
+            console.log(typeof(cartItems));
+            return;
+        }
+        
+        const updatedFoodOrders = food_list.map(foodItem => {
+            const quantity = cartItems[foodItem._id]; // Get quantity from cartItems object using foodItem's _id
+            if (quantity) {
+                return {
+                    ...foodItem,
+                    quantity: quantity
+                };
+            }
+            return null; // If the item is not in the cart, return null or skip it
+        }).filter(item => item !== null); // Filter out any null items
+        
+        console.log("The food Orders are ", updatedFoodOrders);
+        setFoodOrders(updatedFoodOrders);
+    };
+
+    updateFoodOrders();
+}, [cartItems, food_list]); // Add cartItems and food_list to the dependency array
+
   const {}=useContext(StoreContext)
   const [data, setData] = useState({
     firstName: "",
@@ -128,7 +157,7 @@ const PlaceOrder = () => {
     try {
       const orderDetails = {
         userId,
-        items: cartItems,
+        items: foodOrders,
         amount: getTotalCartAmount(),
         address: {
           firstName: data.firstName,

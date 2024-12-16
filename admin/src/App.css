@@ -1,0 +1,11 @@
+
+
+@media (max-width:728px) {
+    .app-component{
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-title{
+        font-size: 9px;
+    }
+}

@@ -4,17 +4,19 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    color: white !important;
+    /* color: white !important; */
  
 }
 
 body{
     min-height: 100vh;
     background-color: #1f2d3b;
-    color: white !important;
+    color: black !important;
 
 }
-
+.Toastify__toast-body >div{
+    color: black !important;
+}
 a{
     text-decoration: none;
     color: inherit;

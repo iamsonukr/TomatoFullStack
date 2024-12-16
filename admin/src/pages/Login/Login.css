@@ -1,0 +1,108 @@
+.admin-main{
+background-image: url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1  ');
+}
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #939393;
+    padding: 20px;
+    
+    background-color: rgba(226, 226, 226, 0.09);
+backdrop-filter: blur(10px);
+  }
+  
+  .admin-logo {
+    margin-bottom: 2rem;
+  }
+  
+  .admin-logo img {
+    max-width: 350px;
+    height: auto;
+  }
+  
+  .admin-login-form {
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .admin-login-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .admin-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .admin-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .admin-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+  
+  .admin-form-group input:focus {
+    outline: none;
+    border-color: tomato;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #bd3535;
+  }
+  
+  button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+  }
+  
+  @media (max-width: 480px) {
+    .admin-login-form {
+      padding: 1.5rem;
+    }
+    
+    .admin-login-form h1 {
+      font-size: 1.5rem;
+    }
+    
+    .admin-form-group input {
+      padding: 0.625rem;
+    }
+    
+    button[type="submit"] {
+      padding: 0.625rem;
+    }
+  }

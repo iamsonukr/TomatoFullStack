@@ -31,6 +31,12 @@
     outline: none;
 }
 
+.order-list{
+    height: 100vh;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
 @media(max-widht:1000px){
     .order-item{
         font-size: 12px;
@@ -45,4 +51,16 @@
     .font-item img{
         width: 40px;
     }
+}
+
+select{
+    color: white;
+}
+
+select option{
+    color: white;
+}
+
+h3{
+    color: white;
 }

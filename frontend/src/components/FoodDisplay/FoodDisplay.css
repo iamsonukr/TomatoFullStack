@@ -22,6 +22,12 @@
     padding: 1rem 0;
 }
 
+.food-loading{
+    text-align: center;
+    font-size: 34px;
+    animation: fadeIn 2s infinite;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .food-display {
@@ -49,6 +55,8 @@
         font-size: 1.25rem;
     }
 }
+
+
 
 /* Optional animation for items appearing */
 @keyframes fadeIn {

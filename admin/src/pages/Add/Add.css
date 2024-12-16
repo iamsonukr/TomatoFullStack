@@ -44,7 +44,17 @@
     border: none;
     padding: 10px;
     background-color: black;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
+p{
+    color: white;
+}
+
+.add-category select{
+    color: black;
+}
+.add-category select option{
+    color: black;
+}
